@@ -34,6 +34,7 @@ Solo bookkeepers and freelance QuickBooks ProAdvisors whose revenue is capped by
 
 ## Demo
 
+- **Full HD Walkthrough Video (1:16 with AI Voiceover):** [LedgerShield_Demo_Walkthrough.mp4](LedgerShield_Demo_Walkthrough.mp4) (Included in repo, Full HD 1080p walkthrough with professional neural voice narration).
 - **Live Cloud Deployment (Render):** [https://ledgershield-dcqj.onrender.com](https://ledgershield-dcqj.onrender.com)
 - **Live Local Workstation:** Running on `http://localhost:3000` (Frontend) and `http://127.0.0.1:8000` (Backend API).
 - **Interactive 3D Spatial Vault:** Real-time mouse-reactive 3D perspective cube (`SpatialVault.tsx`) demonstrating the 3 local architectural layers: Zero-Cloud Privacy, Gemma 2 AI, and SQLite Deterministic Rules.

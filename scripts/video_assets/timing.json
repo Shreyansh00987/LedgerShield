@@ -1,0 +1,37 @@
+{
+  "durations": {
+    "scene1_intro": 15.96,
+    "scene2_load": 11.136,
+    "scene3_reconcile": 11.664,
+    "scene4_inspect": 11.76,
+    "scene5_inquiry": 9.696,
+    "scene6_export_benchmark": 14.304
+  },
+  "total_duration": 74.52,
+  "sections": [
+    {
+      "id": "scene1_intro",
+      "text": "Every month, independent bookkeepers spend 20 plus hours deciphering messy bank feeds. Sending confidential statements to cloud AI leaks client data and risks hallucinated account codes. LedgerShield solves this: reconcile confidently, keep financial data local."
+    },
+    {
+      "id": "scene2_load",
+      "text": "Let's load Northstar Electrical Services, with 57 realistic contractor transactions and an active Chart of Accounts. All transactions start unreviewed, with zero cloud exposure."
+    },
+    {
+      "id": "scene3_reconcile",
+      "text": "Now watch LedgerShield's two-stage engine in action. Deterministic rules resolve recurring suppliers instantly, while local open-weight AI classifies ambiguous expenses against our Chart of Accounts."
+    },
+    {
+      "id": "scene4_inspect",
+      "text": "LedgerShield never silently auto-approves. Let's inspect Platt Electric Supply. In one click, we persist a custom vendor rule directly into local SQLite, automating all future statements."
+    },
+    {
+      "id": "scene5_inquiry",
+      "text": "For tricky marketplace charges without receipts, switch to the Client Inquiry Builder. It generates structured questions ready to copy straight into Slack or email."
+    },
+    {
+      "id": "scene6_export_benchmark",
+      "text": "Finally, export audit-compliant CSVs ready for QuickBooks or Xero, and inspect our benchmark showing an 82 percent accuracy rate at zero marginal token cost. LedgerShield: reconcile confidently, keep financial data local."
+    }
+  ]
+}
