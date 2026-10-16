@@ -1,0 +1,69 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --bg-app: #0c0e14;
+    --bg-surface: #12151f;
+    --bg-surface-elevated: #1a1e2d;
+    --bg-surface-subtle: #161925;
+    
+    --border-subtle: #242938;
+    --border-strong: #333a4f;
+    --border-focus: #3b82f6;
+
+    --text-primary: #f1f5f9;
+    --text-secondary: #94a3b8;
+    --text-muted: #64748b;
+    
+    --accent-primary: #2563eb;
+    --accent-hover: #1d4ed8;
+    --accent-surface: rgba(37, 99, 235, 0.12);
+
+    --status-accepted-bg: rgba(16, 185, 129, 0.12);
+    --status-accepted-text: #34d399;
+    --status-accepted-border: rgba(16, 185, 129, 0.28);
+
+    --status-suggested-bg: rgba(59, 130, 246, 0.12);
+    --status-suggested-text: #60a5fa;
+    --status-suggested-border: rgba(59, 130, 246, 0.28);
+
+    --status-clarify-bg: rgba(245, 158, 11, 0.12);
+    --status-clarify-text: #fbbf24;
+    --status-clarify-border: rgba(245, 158, 11, 0.28);
+
+    --status-rejected-bg: rgba(239, 68, 68, 0.12);
+    --status-rejected-text: #f87171;
+    --status-rejected-border: rgba(239, 68, 68, 0.28);
+  }
+
+  body {
+    background-color: var(--bg-app);
+    color: var(--text-primary);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* Financial tabular numerals */
+  .tabular-nums {
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* Custom scrollbars suited for dense accounting tables */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #0f121a;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #252b3b;
+    border-radius: 3px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #374151;
+  }
+}
