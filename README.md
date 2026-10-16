@@ -9,14 +9,16 @@
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg?style=for-the-badge)](LICENSE)
 [![Model](https://img.shields.io/badge/Local%20AI-Gemma%202%202B-FF6F00?style=for-the-badge&logo=google&logoColor=white)](https://ai.google.dev/gemma)
 [![Privacy](https://img.shields.io/badge/Privacy-100%25%20Local%20First-10B981?style=for-the-badge)](PRIVACY.md)
-[![Demo Video](https://img.shields.io/badge/Demo%20Video-1%3A16%20Walkthrough-red?style=for-the-badge&logo=youtube&logoColor=white)](LedgerShield_Demo_Walkthrough.mp4)
+[![Demo Video](https://img.shields.io/badge/Demo%20Video-YouTube-red?style=for-the-badge&logo=youtube&logoColor=white)](https://youtu.be/_L-JsBISRNo)
+[![Dev.to Submission](https://img.shields.io/badge/Dev.to-Hackathon%20Submission-0A0A0A?style=for-the-badge&logo=dev.to&logoColor=white)](https://dev.to/shreyansh_agrahari_2009db/ledgershield-reconcile-confidently-keep-financial-data-local-57kd)
 
 ---
 
 ### 🌐 **Live Cloud Demo on Render:**
 ### 👉 [https://ledgershield-dcqj.onrender.com](https://ledgershield-dcqj.onrender.com) 👈
 
-🎥 **Watch 76s Walkthrough Demo Video (with Neural AI Voice):** [LedgerShield_Demo_Walkthrough.mp4](LedgerShield_Demo_Walkthrough.mp4)
+🎥 **Watch 76s Walkthrough Demo Video (with Neural AI Voice):** [https://youtu.be/_L-JsBISRNo](https://youtu.be/_L-JsBISRNo)  
+📝 **Official Hackathon Submission Post:** [Dev.to Article](https://dev.to/shreyansh_agrahari_2009db/ledgershield-reconcile-confidently-keep-financial-data-local-57kd)
 
 *Full 3D interactive React UI, deterministic reconciliation, client inquiry generator, and benchmark evaluator hosted live on Render.*
 
