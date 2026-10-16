@@ -20,6 +20,7 @@ interface HeaderProps {
   onLoadDemo: () => void;
   onRunReconciliation: () => void;
   isReconciling: boolean;
+  onOpenVault?: () => void;
 }
 
 export const Header: React.FC<HeaderProps> = ({
@@ -29,7 +30,8 @@ export const Header: React.FC<HeaderProps> = ({
   onSelectSession,
   onLoadDemo,
   onRunReconciliation,
-  isReconciling
+  isReconciling,
+  onOpenVault
 }) => {
   const isModelLive = health?.model_runtime.available ?? false;
   const currentSession = sessions.find(s => s.id === currentSessionId);
@@ -70,10 +72,24 @@ export const Header: React.FC<HeaderProps> = ({
         {/* Runtime Diagnostics & Controls */}
         <div className="flex flex-wrap items-center gap-2.5">
           
+          {/* Interactive 3D Spatial Vault Button */}
+          {onOpenVault && (
+            <button
+              onClick={onOpenVault}
+              className="btn-3d flex items-center space-x-1.5 px-3 py-1.5 rounded-lg bg-gradient-to-r from-cyan-950/70 to-blue-950/70 hover:from-cyan-900/80 hover:to-blue-900/80 border border-cyan-700/50 text-xs text-cyan-300 font-semibold cursor-pointer"
+              title="Explore interactive 3D local privacy architecture vault"
+            >
+              <Shield className="w-3.5 h-3.5 text-cyan-400" />
+              <span>3D Spatial Vault</span>
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+            </button>
+          )}
+
           {/* Privacy Verification Pill */}
           <div 
-            className="flex items-center space-x-1.5 px-3 py-1.5 rounded-lg bg-emerald-950/30 border border-emerald-800/40 text-xs text-emerald-300 shadow-sm"
-            title="All financial transaction data processed locally on device - Zero remote AI calls"
+            onClick={onOpenVault}
+            className="badge-3d flex items-center space-x-1.5 px-3 py-1.5 rounded-lg bg-emerald-950/30 border border-emerald-800/40 text-xs text-emerald-300 shadow-sm cursor-pointer hover:border-emerald-500/50 transition"
+            title="All financial transaction data processed locally on device - Zero remote AI calls (Click to inspect)"
           >
             <Lock className="w-3.5 h-3.5 text-emerald-400" />
             <span className="font-semibold text-[11px]">100% Local</span>
@@ -82,7 +98,7 @@ export const Header: React.FC<HeaderProps> = ({
           </div>
 
           {/* Model Engine Status */}
-          <div className="flex items-center space-x-2 px-3 py-1.5 rounded-lg bg-[#141824] border border-slate-700/60 text-xs text-slate-300">
+          <div className="badge-3d flex items-center space-x-2 px-3 py-1.5 rounded-lg bg-[#141824] border border-slate-700/60 text-xs text-slate-300">
             <span className={`w-2 h-2 rounded-full ${isModelLive ? 'bg-emerald-400 shadow-sm shadow-emerald-400' : 'bg-amber-400'}`}></span>
             <span className="text-slate-400 text-[11px]">Engine:</span>
             <span className="font-mono text-slate-100 font-medium text-[11px]">
@@ -111,7 +127,7 @@ export const Header: React.FC<HeaderProps> = ({
           {/* Quick Demo Data Loader */}
           <button
             onClick={onLoadDemo}
-            className="inline-flex items-center space-x-1.5 px-3 py-1.5 rounded-lg text-xs font-medium bg-[#161c2a] hover:bg-[#1e2638] text-slate-200 border border-slate-700/70 hover:border-blue-500/50 transition shadow-sm"
+            className="btn-3d inline-flex items-center space-x-1.5 px-3 py-1.5 rounded-lg text-xs font-medium bg-[#161c2a] hover:bg-[#1e2638] text-slate-200 border border-slate-700/70 hover:border-blue-500/50 transition"
             title="Load Northstar Electrical Services synthetic demo transactions"
           >
             <Database className="w-3.5 h-3.5 text-blue-400" />
@@ -123,7 +139,7 @@ export const Header: React.FC<HeaderProps> = ({
             <button
               onClick={onRunReconciliation}
               disabled={isReconciling}
-              className="inline-flex items-center space-x-1.5 px-4 py-1.5 rounded-lg text-xs font-semibold bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white shadow-md shadow-blue-900/40 disabled:opacity-50 transition transform active:scale-95"
+              className="btn-3d inline-flex items-center space-x-1.5 px-4 py-1.5 rounded-lg text-xs font-semibold bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white shadow-md shadow-blue-900/40 disabled:opacity-50 transition"
             >
               {isReconciling ? (
                 <>

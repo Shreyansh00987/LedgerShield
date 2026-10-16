@@ -106,7 +106,7 @@ export const InquiryView: React.FC<InquiryViewProps> = ({ sessionId, transaction
           <button
             onClick={handleCopy}
             disabled={!markdown}
-            className="inline-flex items-center space-x-1.5 px-3.5 py-1.5 rounded-lg bg-blue-600 hover:bg-blue-500 text-white text-xs font-semibold shadow-sm transition disabled:opacity-50"
+            className="btn-3d inline-flex items-center space-x-1.5 px-3.5 py-1.5 rounded-lg bg-blue-600 hover:bg-blue-500 text-white text-xs font-semibold disabled:opacity-50"
           >
             {copied ? <Check className="w-3.5 h-3.5 text-emerald-200" /> : <Copy className="w-3.5 h-3.5" />}
             <span>{copied ? 'Copied to Clipboard!' : 'Copy Markdown'}</span>
@@ -115,7 +115,7 @@ export const InquiryView: React.FC<InquiryViewProps> = ({ sessionId, transaction
           <button
             onClick={handleDownload}
             disabled={!markdown}
-            className="inline-flex items-center space-x-1.5 px-3 py-1.5 rounded-lg bg-[#161c2a] hover:bg-[#1e2638] text-slate-200 border border-slate-700/80 text-xs font-medium transition disabled:opacity-50"
+            className="btn-3d inline-flex items-center space-x-1.5 px-3 py-1.5 rounded-lg bg-[#161c2a] hover:bg-[#1e2638] text-slate-200 border border-slate-700/80 text-xs font-medium disabled:opacity-50"
           >
             <Download className="w-3.5 h-3.5" />
             <span>Export .MD</span>
@@ -162,7 +162,7 @@ export const InquiryView: React.FC<InquiryViewProps> = ({ sessionId, transaction
               return (
                 <div
                   key={item.transaction_id}
-                  className="p-5 rounded-2xl bg-[#0e111a] border border-slate-800 space-y-3.5 shadow-md"
+                  className="card-3d p-5 rounded-2xl space-y-3.5"
                 >
                   {/* Card Title Bar */}
                   <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-3 border-b border-slate-800/80">
@@ -206,9 +206,9 @@ export const InquiryView: React.FC<InquiryViewProps> = ({ sessionId, transaction
                           <button
                             key={oIdx}
                             onClick={() => handleOptionSelect(item.transaction_id, opt)}
-                            className={`p-2.5 rounded-xl border text-left text-xs transition flex items-center space-x-2.5 ${
+                            className={`badge-3d p-2.5 rounded-xl border text-left text-xs transition active:translate-y-[1px] flex items-center space-x-2.5 ${
                               isChosen
-                                ? 'bg-cyan-950/60 border-cyan-500/60 text-cyan-200 font-semibold shadow-sm'
+                                ? 'bg-cyan-950/60 border-cyan-500/60 text-cyan-200 font-semibold'
                                 : 'bg-[#141824] hover:bg-[#1a2030] border-slate-800 text-slate-300'
                             }`}
                           >

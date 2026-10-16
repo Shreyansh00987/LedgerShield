@@ -2,13 +2,13 @@
 
 @layer base {
   :root {
-    --bg-app: #08090e;
-    --bg-surface: #0f121b;
-    --bg-surface-elevated: #161b28;
-    --bg-surface-subtle: #121622;
+    --bg-app: #07090e;
+    --bg-surface: #0e121c;
+    --bg-surface-elevated: #151b2a;
+    --bg-surface-subtle: #111522;
     
-    --border-subtle: #1e2433;
-    --border-strong: #2c354b;
+    --border-subtle: #1d2434;
+    --border-strong: #2a344c;
     --border-focus: #3b82f6;
 
     --text-primary: #f8fafc;
@@ -57,23 +57,83 @@
     height: 6px;
   }
   ::-webkit-scrollbar-track {
-    background: #0a0c12;
+    background: #080a10;
   }
   ::-webkit-scrollbar-thumb {
-    background: #202738;
+    background: #1c2333;
     border-radius: 3px;
   }
   ::-webkit-scrollbar-thumb:hover {
-    background: #2f3952;
+    background: #2a354d;
   }
 
-  /* Subtle card gradient & border shine */
-  .financial-card {
-    background: linear-gradient(180deg, rgba(22, 27, 40, 0.75) 0%, rgba(15, 18, 27, 0.85) 100%);
-    border: 1px solid rgba(44, 53, 75, 0.7);
+  /* 3D Tactile Card Elevation */
+  .card-3d {
+    background: linear-gradient(180deg, #131826 0%, #0c0f18 100%);
+    border: 1px solid rgba(44, 55, 80, 0.75);
+    box-shadow: 
+      0 12px 28px -6px rgba(0, 0, 0, 0.65),
+      0 4px 10px rgba(0, 0, 0, 0.4),
+      inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s ease, border-color 0.2s ease;
   }
 
-  .financial-card:hover {
-    border-color: rgba(59, 130, 246, 0.35);
+  .card-3d:hover {
+    transform: translateY(-2px);
+    box-shadow: 
+      0 18px 40px -8px rgba(0, 0, 0, 0.8),
+      0 6px 16px rgba(0, 0, 0, 0.45),
+      inset 0 1px 0 rgba(255, 255, 255, 0.14);
+    border-color: rgba(59, 130, 246, 0.45);
+  }
+
+  /* 3D Tactile Button Press */
+  .btn-3d {
+    position: relative;
+    box-shadow: 
+      0 4px 12px -2px rgba(0, 0, 0, 0.5),
+      inset 0 1px 0 rgba(255, 255, 255, 0.18),
+      inset 0 -1.5px 0 rgba(0, 0, 0, 0.4);
+    transition: transform 0.12s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.12s ease;
+  }
+
+  .btn-3d:hover {
+    transform: translateY(-1px);
+    box-shadow: 
+      0 6px 16px -2px rgba(0, 0, 0, 0.6),
+      inset 0 1px 0 rgba(255, 255, 255, 0.24),
+      inset 0 -1.5px 0 rgba(0, 0, 0, 0.4);
+  }
+
+  .btn-3d:active {
+    transform: translateY(1.5px);
+    box-shadow: 
+      0 1px 3px rgba(0, 0, 0, 0.5),
+      inset 0 2px 4px rgba(0, 0, 0, 0.4);
+  }
+
+  /* 3D Embossed Status Badge */
+  .badge-3d {
+    box-shadow: 
+      0 1px 3px rgba(0, 0, 0, 0.3),
+      inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  }
+
+  /* 3D Metric Tile */
+  .metric-tile-3d {
+    background: linear-gradient(180deg, #131724 0%, #0e111a 100%);
+    border: 1px solid rgba(38, 48, 70, 0.8);
+    box-shadow: 
+      0 6px 16px -3px rgba(0, 0, 0, 0.5),
+      inset 0 1px 0 rgba(255, 255, 255, 0.06);
+    transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .metric-tile-3d:hover {
+    border-color: rgba(59, 130, 246, 0.4);
+    transform: translateY(-1.5px);
+    box-shadow: 
+      0 10px 22px -4px rgba(0, 0, 0, 0.65),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1);
   }
 }

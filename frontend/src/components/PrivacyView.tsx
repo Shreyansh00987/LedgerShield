@@ -13,6 +13,7 @@ import {
 } from 'lucide-react';
 import { HealthStatus } from '../types';
 import { clearLocalData } from '../api';
+import { SpatialVault } from './SpatialVault';
 
 interface PrivacyViewProps {
   health: HealthStatus | null;
@@ -62,8 +63,11 @@ export const PrivacyView: React.FC<PrivacyViewProps> = ({
         </p>
       </div>
 
+      {/* 3D Spatial Interactive Vault */}
+      <SpatialVault isModelLive={health?.model_runtime.available} />
+
       {/* Verified Core Guarantee */}
-      <div className="p-6 rounded-2xl bg-gradient-to-br from-emerald-950/20 to-[#0e111a] border border-emerald-800/40 space-y-4 shadow-lg shadow-emerald-950/10">
+      <div className="card-3d p-6 rounded-2xl border border-emerald-800/40 space-y-4">
         <div className="flex items-center space-x-3 text-emerald-300 font-bold text-sm">
           <div className="w-9 h-9 rounded-xl bg-emerald-950/80 border border-emerald-700/50 flex items-center justify-center text-emerald-400">
             <ShieldCheck className="w-5 h-5" />
@@ -77,19 +81,19 @@ export const PrivacyView: React.FC<PrivacyViewProps> = ({
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 pt-2 text-xs">
-          <div className="flex items-center space-x-2.5 text-slate-200 p-2.5 rounded-xl bg-[#121622] border border-slate-800">
+          <div className="metric-tile-3d flex items-center space-x-2.5 text-slate-200 p-2.5 rounded-xl border border-slate-800">
             <ServerOff className="w-4 h-4 text-emerald-400 shrink-0" />
             <span>0 Outbound Remote AI API Calls</span>
           </div>
-          <div className="flex items-center space-x-2.5 text-slate-200 p-2.5 rounded-xl bg-[#121622] border border-slate-800">
+          <div className="metric-tile-3d flex items-center space-x-2.5 text-slate-200 p-2.5 rounded-xl border border-slate-800">
             <Database className="w-4 h-4 text-emerald-400 shrink-0" />
             <span>Local SQLite Embedded Persistence Only</span>
           </div>
-          <div className="flex items-center space-x-2.5 text-slate-200 p-2.5 rounded-xl bg-[#121622] border border-slate-800">
+          <div className="metric-tile-3d flex items-center space-x-2.5 text-slate-200 p-2.5 rounded-xl border border-slate-800">
             <FileCheck className="w-4 h-4 text-emerald-400 shrink-0" />
             <span>DDE & Spreadsheet Formula Injection Defense</span>
           </div>
-          <div className="flex items-center space-x-2.5 text-slate-200 p-2.5 rounded-xl bg-[#121622] border border-slate-800">
+          <div className="metric-tile-3d flex items-center space-x-2.5 text-slate-200 p-2.5 rounded-xl border border-slate-800">
             <Lock className="w-4 h-4 text-emerald-400 shrink-0" />
             <span>Audit Logs Exclude Transaction Amounts</span>
           </div>
@@ -100,7 +104,7 @@ export const PrivacyView: React.FC<PrivacyViewProps> = ({
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         
         {/* Model Engine Status */}
-        <div className="p-6 rounded-2xl bg-[#0e111a] border border-slate-800 space-y-4">
+        <div className="card-3d p-6 rounded-2xl space-y-4">
           <div className="flex items-center justify-between pb-2 border-b border-slate-800">
             <h2 className="text-xs font-bold text-slate-200 uppercase tracking-wider flex items-center space-x-2">
               <Cpu className="w-4 h-4 text-cyan-400" />
@@ -134,7 +138,7 @@ export const PrivacyView: React.FC<PrivacyViewProps> = ({
         </div>
 
         {/* Database & Storage */}
-        <div className="p-6 rounded-2xl bg-[#0e111a] border border-slate-800 space-y-4">
+        <div className="card-3d p-6 rounded-2xl space-y-4">
           <div className="pb-2 border-b border-slate-800">
             <h2 className="text-xs font-bold text-slate-200 uppercase tracking-wider flex items-center space-x-2">
               <Database className="w-4 h-4 text-blue-400" />
@@ -159,7 +163,7 @@ export const PrivacyView: React.FC<PrivacyViewProps> = ({
       </div>
 
       {/* Clear Data & Reset Action Card */}
-      <div className="p-6 rounded-2xl bg-gradient-to-br from-rose-950/20 to-[#0e111a] border border-rose-900/40 space-y-4">
+      <div className="card-3d p-6 rounded-2xl border border-rose-900/40 space-y-4">
         <div className="flex items-center space-x-2.5 text-rose-300 font-bold text-sm">
           <Trash2 className="w-4 h-4 text-rose-400" />
           <span>Local Data Purge</span>
@@ -175,13 +179,13 @@ export const PrivacyView: React.FC<PrivacyViewProps> = ({
               <button
                 onClick={handleClear}
                 disabled={clearing}
-                className="px-4 py-2 rounded-lg bg-rose-600 hover:bg-rose-500 text-white font-bold text-xs transition shadow-sm"
+                className="btn-3d px-4 py-2 rounded-lg bg-rose-600 hover:bg-rose-500 text-white font-bold text-xs"
               >
                 {clearing ? 'Purging...' : 'Yes, Permanently Delete All'}
               </button>
               <button
                 onClick={() => setConfirmOpen(false)}
-                className="px-4 py-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-medium transition"
+                className="btn-3d px-4 py-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-medium"
               >
                 Cancel
               </button>
@@ -190,7 +194,7 @@ export const PrivacyView: React.FC<PrivacyViewProps> = ({
         ) : (
           <button
             onClick={() => setConfirmOpen(true)}
-            className="px-4 py-2.5 rounded-xl bg-rose-900/30 hover:bg-rose-900/50 text-rose-300 border border-rose-800/50 text-xs font-bold transition shadow-sm"
+            className="btn-3d px-4 py-2.5 rounded-xl bg-rose-900/30 hover:bg-rose-900/50 text-rose-300 border border-rose-800/50 text-xs font-bold"
           >
             Purge All Local Records & Sessions
           </button>

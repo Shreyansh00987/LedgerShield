@@ -59,7 +59,7 @@ export const BenchmarkView: React.FC = () => {
         <button
           onClick={handleRun}
           disabled={isRunning}
-          className="inline-flex items-center space-x-2 px-4 py-2 rounded-lg bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white text-xs font-semibold shadow-md shadow-blue-900/40 transition disabled:opacity-50"
+          className="btn-3d inline-flex items-center space-x-2 px-4 py-2 rounded-lg bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white text-xs font-semibold shadow-md shadow-blue-900/40 disabled:opacity-50"
         >
           {isRunning ? (
             <>
@@ -82,7 +82,7 @@ export const BenchmarkView: React.FC = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             
             {/* Stage 1: Deterministic Only */}
-            <div className="p-6 rounded-2xl bg-[#0e111a] border border-slate-800 space-y-4 shadow-md">
+            <div className="card-3d p-6 rounded-2xl space-y-4">
               <div className="flex items-center justify-between">
                 <div>
                   <span className="text-[10px] font-mono uppercase tracking-wider text-slate-500 block">Baseline Engine</span>
@@ -132,7 +132,7 @@ export const BenchmarkView: React.FC = () => {
             </div>
 
             {/* Stage 2: Deterministic + Local AI */}
-            <div className="p-6 rounded-2xl bg-gradient-to-br from-[#101524] to-[#0c0f18] border border-blue-800/60 space-y-4 shadow-lg shadow-blue-950/20 relative overflow-hidden">
+            <div className="card-3d p-6 rounded-2xl border border-blue-800/60 space-y-4 relative overflow-hidden">
               <div className="absolute top-0 right-0 w-32 h-32 bg-blue-500/5 rounded-full blur-2xl pointer-events-none"></div>
 
               <div className="flex items-center justify-between">
@@ -143,7 +143,7 @@ export const BenchmarkView: React.FC = () => {
                     <span>Rules + Local Gemma 2</span>
                   </h2>
                 </div>
-                <span className="text-[11px] font-mono px-2 py-0.5 rounded bg-blue-950 text-cyan-300 border border-blue-700/50">
+                <span className="badge-3d text-[11px] font-mono px-2 py-0.5 rounded bg-blue-950 text-cyan-300 border border-blue-700/50">
                   Combined Pipeline
                 </span>
               </div>
@@ -155,7 +155,7 @@ export const BenchmarkView: React.FC = () => {
                   <p className="text-3xl font-extrabold font-mono text-emerald-400 tabular-nums">
                     {result.metrics.deterministic_plus_local_ai.accuracy}%
                   </p>
-                  <span className="inline-flex items-center text-xs font-bold text-emerald-400 font-mono px-2 py-0.5 rounded bg-emerald-950/70 border border-emerald-800/50">
+                  <span className="badge-3d inline-flex items-center text-xs font-bold text-emerald-400 font-mono px-2 py-0.5 rounded bg-emerald-950/70 border border-emerald-800/50">
                     +{result.metrics.deterministic_plus_local_ai.accuracy_gain_pct}% Improvement
                   </span>
                 </div>
@@ -192,26 +192,26 @@ export const BenchmarkView: React.FC = () => {
           </div>
 
           {/* Business Economics Card (Why Open Innovation Matters) */}
-          <div className="p-5 rounded-2xl bg-[#0e111a] border border-slate-800 space-y-4">
+          <div className="card-3d p-5 rounded-2xl space-y-4">
             <h3 className="text-xs font-bold text-slate-200 uppercase tracking-wider flex items-center space-x-2">
               <DollarSign className="w-4 h-4 text-emerald-400" />
               <span>Commercial Side Hustle Economics: Open Weights vs. Closed Cloud APIs</span>
             </h3>
 
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs">
-              <div className="p-3.5 rounded-xl bg-[#141824] border border-slate-800/80 space-y-1">
+              <div className="metric-tile-3d p-3.5 rounded-xl border border-slate-800/80 space-y-1">
                 <span className="text-slate-400 text-[11px]">Local Inference Marginal Cost:</span>
                 <p className="text-lg font-bold font-mono text-emerald-400">$0.00 / Month</p>
                 <p className="text-[10px] text-slate-500">Zero per-token cloud billing on client hardware.</p>
               </div>
 
-              <div className="p-3.5 rounded-xl bg-[#141824] border border-slate-800/80 space-y-1">
+              <div className="metric-tile-3d p-3.5 rounded-xl border border-slate-800/80 space-y-1">
                 <span className="text-slate-400 text-[11px]">Client Data Exposure:</span>
                 <p className="text-lg font-bold font-mono text-emerald-400">0 Remote Packets</p>
                 <p className="text-[10px] text-slate-500">Satisfies client NDA and confidentiality mandates.</p>
               </div>
 
-              <div className="p-3.5 rounded-xl bg-[#141824] border border-slate-800/80 space-y-1">
+              <div className="metric-tile-3d p-3.5 rounded-xl border border-slate-800/80 space-y-1">
                 <span className="text-slate-400 text-[11px]">Account Code Hallucinations:</span>
                 <p className="text-lg font-bold font-mono text-emerald-400">0.0% Hallucination Rate</p>
                 <p className="text-[10px] text-slate-500">Strict Chart of Accounts schema authority.</p>

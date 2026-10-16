@@ -61,7 +61,7 @@ export const TransactionDetailDrawer: React.FC<TransactionDetailDrawerProps> = (
   const quickPresets = ['5010', '6020', '6060', '6070', '4010'];
 
   return (
-    <div className="fixed inset-y-0 right-0 w-full max-w-lg bg-[#0e111a] border-l border-slate-800 shadow-2xl z-40 flex flex-col animate-in slide-in-from-right duration-200">
+    <div className="fixed inset-y-0 right-0 w-full max-w-lg bg-[#0e111a] border-l border-slate-800 shadow-[-20px_0_60px_rgba(0,0,0,0.85)] z-40 flex flex-col animate-in slide-in-from-right duration-200">
       
       {/* Header */}
       <div className="border-b border-slate-800 px-6 py-4 flex items-center justify-between bg-[#121622]">
@@ -86,7 +86,7 @@ export const TransactionDetailDrawer: React.FC<TransactionDetailDrawerProps> = (
       <div className="flex-1 overflow-y-auto p-6 space-y-5 text-xs text-slate-300">
         
         {/* Transaction Summary Card */}
-        <div className="p-4 rounded-xl bg-[#141824] border border-slate-800 space-y-3">
+        <div className="card-3d p-4 rounded-xl space-y-3">
           <div className="flex items-center justify-between">
             <span className="text-slate-400 text-xs">Transaction Date</span>
             <span className="font-mono text-slate-200 font-semibold">{transaction.date}</span>
@@ -137,7 +137,7 @@ export const TransactionDetailDrawer: React.FC<TransactionDetailDrawerProps> = (
             <SourceBadge source={transaction.match_source} confidence={transaction.confidence} />
           </div>
 
-          <div className="p-3.5 rounded-xl bg-[#141824] border border-slate-800 space-y-2.5">
+          <div className="card-3d p-3.5 rounded-xl space-y-2.5">
             <div>
               <span className="text-[11px] text-slate-500 block">Explanation:</span>
               <p className="mt-0.5 text-slate-100 text-xs leading-relaxed font-medium">
@@ -237,7 +237,7 @@ export const TransactionDetailDrawer: React.FC<TransactionDetailDrawerProps> = (
             <button
               onClick={handleCreateRule}
               disabled={ruleSaved}
-              className="w-full py-2.5 px-3 rounded-lg bg-[#182030] hover:bg-[#1e283d] text-blue-200 border border-blue-700/60 flex items-center justify-center space-x-2 text-xs font-semibold transition shadow-sm"
+              className="btn-3d w-full py-2.5 px-3 rounded-lg bg-[#182030] hover:bg-[#1e283d] text-blue-200 border border-blue-700/60 flex items-center justify-center space-x-2 text-xs font-semibold"
             >
               <BookmarkPlus className="w-4 h-4 text-blue-400" />
               <span>
@@ -264,7 +264,7 @@ export const TransactionDetailDrawer: React.FC<TransactionDetailDrawerProps> = (
           />
           <button
             onClick={handleSaveNote}
-            className="px-3 py-1.5 rounded-lg bg-[#161c2a] hover:bg-[#1e2638] text-slate-200 border border-slate-700 text-xs font-medium transition"
+            className="btn-3d px-3 py-1.5 rounded-lg bg-[#161c2a] hover:bg-[#1e2638] text-slate-200 border border-slate-700 text-xs font-medium"
           >
             Save Note
           </button>
@@ -283,7 +283,7 @@ export const TransactionDetailDrawer: React.FC<TransactionDetailDrawerProps> = (
             onClose();
           }}
           disabled={!selectedAccountId && !transaction.suggested_account_id}
-          className="flex-1 py-2.5 px-3 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-xs flex items-center justify-center space-x-1.5 disabled:opacity-40 transition shadow-sm"
+          className="btn-3d flex-1 py-2.5 px-3 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-xs flex items-center justify-center space-x-1.5 disabled:opacity-40"
         >
           <Check className="w-4 h-4" />
           <span>Approve Transaction</span>
@@ -294,7 +294,7 @@ export const TransactionDetailDrawer: React.FC<TransactionDetailDrawerProps> = (
             onUpdate(transaction.id, { status: 'needs_clarification' });
             onClose();
           }}
-          className="py-2.5 px-3 rounded-lg bg-amber-950/60 hover:bg-amber-900/60 text-amber-300 border border-amber-800/60 font-medium text-xs flex items-center justify-center space-x-1 transition"
+          className="btn-3d py-2.5 px-3 rounded-lg bg-amber-950/60 hover:bg-amber-900/60 text-amber-300 border border-amber-800/60 font-medium text-xs flex items-center justify-center space-x-1"
         >
           <HelpCircle className="w-3.5 h-3.5" />
           <span>Clarify</span>
@@ -305,7 +305,7 @@ export const TransactionDetailDrawer: React.FC<TransactionDetailDrawerProps> = (
             onUpdate(transaction.id, { status: 'rejected' });
             onClose();
           }}
-          className="py-2.5 px-3 rounded-lg bg-rose-950/60 hover:bg-rose-900/60 text-rose-300 border border-rose-800/60 font-medium text-xs flex items-center justify-center space-x-1 transition"
+          className="btn-3d py-2.5 px-3 rounded-lg bg-rose-950/60 hover:bg-rose-900/60 text-rose-300 border border-rose-800/60 font-medium text-xs flex items-center justify-center space-x-1"
         >
           <X className="w-3.5 h-3.5" />
           <span>Reject</span>

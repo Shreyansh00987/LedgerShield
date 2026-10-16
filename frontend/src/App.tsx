@@ -9,6 +9,8 @@ import { ExportView } from './components/ExportView';
 import { RulesView } from './components/RulesView';
 import { BenchmarkView } from './components/BenchmarkView';
 import { PrivacyView } from './components/PrivacyView';
+import { SpatialVault } from './components/SpatialVault';
+import { X } from 'lucide-react';
 import { 
   HealthStatus, 
   SessionSummary, 
@@ -38,6 +40,7 @@ export function App() {
   const [inspectingTx, setInspectingTx] = useState<Transaction | null>(null);
   const [isReconciling, setIsReconciling] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
+  const [isVaultModalOpen, setIsVaultModalOpen] = useState(false);
 
   // Initial Load
   useEffect(() => {
@@ -213,6 +216,7 @@ export function App() {
         onLoadDemo={handleLoadDemo}
         onRunReconciliation={handleRunReconciliation}
         isReconciling={isReconciling}
+        onOpenVault={() => setIsVaultModalOpen(true)}
       />
 
       {/* Primary Navigation Tabs */}
@@ -287,6 +291,25 @@ export function App() {
         onUpdate={handleUpdateTransaction}
         onCreateRule={handleCreateRule}
       />
+
+      {/* Interactive 3D Spatial Vault Modal */}
+      {isVaultModalOpen && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-black/80 backdrop-blur-md animate-in fade-in duration-200">
+          <div className="relative w-full max-w-4xl max-h-[90vh] overflow-y-auto rounded-3xl bg-[#0d1019] border border-cyan-800/60 shadow-2xl shadow-cyan-950/40 p-2 sm:p-4">
+            {/* Close Button */}
+            <button
+              onClick={() => setIsVaultModalOpen(false)}
+              className="absolute top-4 right-4 z-10 p-2 rounded-xl bg-[#141824] hover:bg-[#1a2030] text-slate-400 hover:text-white border border-slate-700/80 transition"
+              title="Close 3D Vault Inspector"
+            >
+              <X className="w-5 h-5" />
+            </button>
+            <div className="p-2 sm:p-4">
+              <SpatialVault isModelLive={health?.model_runtime.available ?? false} />
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

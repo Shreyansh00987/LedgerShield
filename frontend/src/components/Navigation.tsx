@@ -79,7 +79,7 @@ export const Navigation: React.FC<NavigationProps> = ({
               onClick={() => onSelectTab(tab.id)}
               className={`relative flex items-center space-x-2 px-3.5 py-2 text-xs font-medium rounded-lg whitespace-nowrap transition-all ${
                 isActive
-                  ? 'bg-[#161c2a] text-white border border-slate-700/80 shadow-sm shadow-black/30'
+                  ? 'bg-gradient-to-b from-[#182030] to-[#121622] text-white border border-slate-700/80 shadow-md shadow-black/40'
                   : 'text-slate-400 hover:text-slate-200 hover:bg-[#121622]/60'
               }`}
             >

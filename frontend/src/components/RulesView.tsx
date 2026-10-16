@@ -70,7 +70,7 @@ export const RulesView: React.FC<RulesViewProps> = ({ accounts }) => {
             Configured Rules
           </h2>
 
-          <div className="border border-slate-800 rounded-xl overflow-hidden bg-[#111420]">
+          <div className="card-3d rounded-xl overflow-hidden">
             <table className="w-full text-left text-xs border-collapse">
               <thead>
                 <tr className="bg-[#141824] text-[11px] font-semibold text-slate-400 uppercase tracking-wider border-b border-slate-800">
@@ -118,7 +118,7 @@ export const RulesView: React.FC<RulesViewProps> = ({ accounts }) => {
             Create Custom Rule
           </h2>
 
-          <form onSubmit={handleAddRule} className="p-4 rounded-xl bg-[#111420] border border-slate-800 space-y-3 text-xs">
+          <form onSubmit={handleAddRule} className="card-3d p-4 rounded-xl space-y-3 text-xs">
             <div>
               <label className="text-[11px] font-semibold text-slate-400 block mb-1">
                 Merchant Substring / Regex
@@ -173,7 +173,7 @@ export const RulesView: React.FC<RulesViewProps> = ({ accounts }) => {
             <button
               type="submit"
               disabled={isSubmitting || !pattern.trim()}
-              className="w-full py-2 px-3 rounded-md bg-purple-600 hover:bg-purple-500 text-white font-semibold text-xs flex items-center justify-center space-x-1.5 transition disabled:opacity-50"
+              className="btn-3d w-full py-2 px-3 rounded-md bg-purple-600 hover:bg-purple-500 text-white font-semibold text-xs flex items-center justify-center space-x-1.5 disabled:opacity-50"
             >
               <Plus className="w-3.5 h-3.5" />
               <span>Save Deterministic Rule</span>

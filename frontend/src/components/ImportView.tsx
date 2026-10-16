@@ -122,7 +122,7 @@ export const ImportView: React.FC<ImportViewProps> = ({
             <button
               onClick={handleUpload}
               disabled={isUploading}
-              className="w-full py-3 px-4 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white font-bold text-xs flex items-center justify-center space-x-2 transition shadow-md shadow-blue-900/40 disabled:opacity-50"
+              className="btn-3d w-full py-3 px-4 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white font-bold text-xs flex items-center justify-center space-x-2 shadow-md shadow-blue-900/40 disabled:opacity-50"
             >
               <ArrowRight className="w-4 h-4" />
               <span>{isUploading ? 'Parsing & Normalizing...' : 'Import & Launch Studio'}</span>
@@ -130,7 +130,7 @@ export const ImportView: React.FC<ImportViewProps> = ({
           )}
 
           {/* 1-Click Demo Shortcut Card */}
-          <div className="p-5 rounded-2xl bg-gradient-to-r from-[#121622] to-[#101420] border border-slate-800 flex items-center justify-between gap-4 shadow-sm">
+          <div className="card-3d p-5 rounded-2xl flex items-center justify-between gap-4">
             <div className="flex items-center space-x-3.5">
               <div className="w-10 h-10 rounded-xl bg-blue-600/20 border border-blue-500/40 flex items-center justify-center text-blue-400 shrink-0">
                 <Database className="w-5 h-5 text-cyan-400" />
@@ -144,7 +144,7 @@ export const ImportView: React.FC<ImportViewProps> = ({
             </div>
             <button
               onClick={onLoadDemo}
-              className="px-4 py-2 rounded-lg bg-blue-600 hover:bg-blue-500 text-white text-xs font-semibold transition shrink-0 shadow-sm"
+              className="btn-3d px-4 py-2 rounded-lg bg-blue-600 hover:bg-blue-500 text-white text-xs font-semibold shrink-0"
             >
               Load Demo
             </button>
@@ -153,7 +153,7 @@ export const ImportView: React.FC<ImportViewProps> = ({
         </div>
 
         {/* Sidebar: Active Chart of Accounts (1 col) */}
-        <div className="border border-slate-800 rounded-2xl bg-[#0e111a] p-5 space-y-4 shadow-md">
+        <div className="card-3d rounded-2xl p-5 space-y-4">
           <div className="flex items-center justify-between pb-3 border-b border-slate-800">
             <h2 className="text-xs font-bold text-slate-200 uppercase tracking-wider">
               Active Chart of Accounts

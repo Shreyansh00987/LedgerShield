@@ -135,7 +135,7 @@ export const TransactionTable: React.FC<TransactionTableProps> = ({
         <div className="max-w-7xl mx-auto grid grid-cols-2 sm:grid-cols-4 gap-4">
           
           {/* Total Flow */}
-          <div className="flex items-center space-x-3 p-2.5 rounded-lg bg-[#121622]/80 border border-slate-800">
+          <div className="metric-tile-3d flex items-center space-x-3 p-3 rounded-xl">
             <div className="w-8 h-8 rounded-lg bg-emerald-950/60 border border-emerald-800/40 flex items-center justify-center text-emerald-400">
               <TrendingUp className="w-4 h-4" />
             </div>
@@ -148,7 +148,7 @@ export const TransactionTable: React.FC<TransactionTableProps> = ({
           </div>
 
           {/* Outflow */}
-          <div className="flex items-center space-x-3 p-2.5 rounded-lg bg-[#121622]/80 border border-slate-800">
+          <div className="metric-tile-3d flex items-center space-x-3 p-3 rounded-xl">
             <div className="w-8 h-8 rounded-lg bg-blue-950/60 border border-blue-800/40 flex items-center justify-center text-blue-400">
               <DollarSign className="w-4 h-4" />
             </div>
@@ -161,7 +161,7 @@ export const TransactionTable: React.FC<TransactionTableProps> = ({
           </div>
 
           {/* Reconcile Progress Meter */}
-          <div className="flex items-center space-x-3 p-2.5 rounded-lg bg-[#121622]/80 border border-slate-800">
+          <div className="metric-tile-3d flex items-center space-x-3 p-3 rounded-xl">
             <div className="w-8 h-8 rounded-lg bg-cyan-950/60 border border-cyan-800/40 flex items-center justify-center text-cyan-400">
               <PieChart className="w-4 h-4" />
             </div>
@@ -180,7 +180,7 @@ export const TransactionTable: React.FC<TransactionTableProps> = ({
           </div>
 
           {/* Clarification Queue */}
-          <div className="flex items-center space-x-3 p-2.5 rounded-lg bg-[#121622]/80 border border-slate-800">
+          <div className="metric-tile-3d flex items-center space-x-3 p-3 rounded-xl">
             <div className="w-8 h-8 rounded-lg bg-amber-950/60 border border-amber-800/40 flex items-center justify-center text-amber-400">
               <HelpCircle className="w-4 h-4" />
             </div>
@@ -240,7 +240,7 @@ export const TransactionTable: React.FC<TransactionTableProps> = ({
           {highConfidenceSuggested.length > 0 && (
             <button
               onClick={handleAcceptAllHighConfidence}
-              className="inline-flex items-center space-x-1 px-3 py-1.5 rounded-lg bg-emerald-950/60 hover:bg-emerald-900/70 text-emerald-300 border border-emerald-800/60 text-xs font-semibold transition ml-2 shadow-sm"
+              className="btn-3d inline-flex items-center space-x-1 px-3 py-1.5 rounded-lg bg-emerald-950/60 hover:bg-emerald-900/70 text-emerald-300 border border-emerald-800/60 text-xs font-semibold ml-2"
               title="Batch-accept verified rule and high-confidence suggestions"
             >
               <Zap className="w-3.5 h-3.5 text-emerald-400" />
@@ -260,21 +260,21 @@ export const TransactionTable: React.FC<TransactionTableProps> = ({
           <div className="flex items-center space-x-2">
             <button
               onClick={() => handleBatch('accept')}
-              className="inline-flex items-center space-x-1 px-3 py-1 rounded-md bg-emerald-600 hover:bg-emerald-500 text-white font-medium shadow-sm transition"
+              className="btn-3d inline-flex items-center space-x-1 px-3 py-1 rounded-md bg-emerald-600 hover:bg-emerald-500 text-white font-medium"
             >
               <Check className="w-3.5 h-3.5" />
               <span>Accept Selected</span>
             </button>
             <button
               onClick={() => handleBatch('mark_clarification')}
-              className="inline-flex items-center space-x-1 px-3 py-1 rounded-md bg-amber-600 hover:bg-amber-500 text-white font-medium shadow-sm transition"
+              className="btn-3d inline-flex items-center space-x-1 px-3 py-1 rounded-md bg-amber-600 hover:bg-amber-500 text-white font-medium"
             >
               <HelpCircle className="w-3.5 h-3.5" />
               <span>Mark Needs Clarification</span>
             </button>
             <button
               onClick={() => handleBatch('reject')}
-              className="inline-flex items-center space-x-1 px-3 py-1 rounded-md bg-rose-600 hover:bg-rose-500 text-white font-medium shadow-sm transition"
+              className="btn-3d inline-flex items-center space-x-1 px-3 py-1 rounded-md bg-rose-600 hover:bg-rose-500 text-white font-medium"
             >
               <X className="w-3.5 h-3.5" />
               <span>Reject Selected</span>
@@ -427,7 +427,7 @@ export const TransactionTable: React.FC<TransactionTableProps> = ({
                         {tx.status !== 'accepted' && tx.suggested_account_id && (
                           <button
                             onClick={() => onUpdateTransaction(tx.id, { status: 'accepted' })}
-                            className="p-1.5 rounded-lg bg-emerald-950/60 hover:bg-emerald-900 text-emerald-300 border border-emerald-800/50 transition transform active:scale-95 shadow-sm"
+                            className="btn-3d p-1.5 rounded-lg bg-emerald-950/60 hover:bg-emerald-900 text-emerald-300 border border-emerald-800/50"
                             title="Approve suggestion"
                           >
                             <Check className="w-3.5 h-3.5" />
@@ -436,7 +436,7 @@ export const TransactionTable: React.FC<TransactionTableProps> = ({
                         {tx.status !== 'rejected' && (
                           <button
                             onClick={() => onUpdateTransaction(tx.id, { status: 'rejected' })}
-                            className="p-1.5 rounded-lg bg-rose-950/60 hover:bg-rose-900 text-rose-300 border border-rose-800/50 transition transform active:scale-95 shadow-sm"
+                            className="btn-3d p-1.5 rounded-lg bg-rose-950/60 hover:bg-rose-900 text-rose-300 border border-rose-800/50"
                             title="Reject suggestion"
                           >
                             <X className="w-3.5 h-3.5" />
@@ -444,7 +444,7 @@ export const TransactionTable: React.FC<TransactionTableProps> = ({
                         )}
                         <button
                           onClick={() => onInspectTransaction(tx)}
-                          className="p-1.5 rounded-lg bg-[#161c2a] hover:bg-[#1e2638] text-slate-300 border border-slate-700/70 transition shadow-sm"
+                          className="btn-3d p-1.5 rounded-lg bg-[#161c2a] hover:bg-[#1e2638] text-slate-300 border border-slate-700/70"
                           title="Inspect audit trail and rationale"
                         >
                           <Eye className="w-3.5 h-3.5" />
