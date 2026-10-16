@@ -35,14 +35,20 @@ Solo bookkeepers and freelance QuickBooks ProAdvisors whose revenue is capped by
 ## Demo
 
 - **Live Local Workstation:** Running on `http://localhost:3000` (Frontend) and `http://127.0.0.1:8000` (Backend API).
+- **Interactive 3D Spatial Vault:** Real-time mouse-reactive 3D perspective cube (`SpatialVault.tsx`) demonstrating the 3 local architectural layers: Zero-Cloud Privacy, Gemma 2 AI, and SQLite Deterministic Rules.
+- **Three Ready-to-Test Real-World Scenarios:**
+  1. **Apex Creative Studio (`example1_apex_creative_studio.csv`):** Freelance design agency with Stripe payouts, Figma/Adobe/AWS SaaS subscriptions, and ambiguous meeting expenses.
+  2. **Summit Plumbing & Heating (`example2_summit_plumbing.csv`):** Plumbing trade contractor with wholesale supplier rules (Ferguson, Grainger), United Rentals, fuel cards, and personal debit card swipes.
+  3. **Metro Cafe & Bakery (`example3_metro_cafe.csv`):** Neighborhood cafe with daily Square and Toast POS settlements, Sysco bakery supplies, and commercial utility invoices.
 - **One-Click Synthetic Demo Dataset:** Pre-loaded with "Northstar Electrical Services" (57 realistic contractor transactions + active trade Chart of Accounts).
 - **Live 90-Second Demo Walkthrough Script:** Documented in [DEMO_SCRIPT.md](file:///d:/Project/LedgerShield/DEMO_SCRIPT.md).
 - **Step-by-Step Flow:**
-  1. Load "Northstar Electrical Services" synthetic statement.
-  2. Click **"Run Reconciliation"**: 29 exact rules match instantly, 28 ambiguous transactions are analyzed by local AI, and 9 tricky items are flagged as *Needs Clarification*.
-  3. Inspect `PLATT ELECTRIC SUPPLY` in the **Audit Inspector Drawer** and click **"Remember Rule"** to save it directly into local SQLite for all future statements.
-  4. Switch to **Client Inquiry Builder**: preview the interactive multiple-choice questionnaire generated for the client's Amazon and handwritten check charges.
-  5. Click **Export & Audit**: run pre-flight checks and download the clean reconciled CSV.
+  1. Click **"3D Spatial Vault"** in the top bar to inspect the interactive 3D local privacy architecture.
+  2. Load or upload any bank statement CSV.
+  3. Click **"Run Reconciliation"**: exact rules match instantly, ambiguous transactions are categorized by local Gemma 2 AI, and tricky items are flagged as *Needs Clarification*.
+  4. Inspect any line in the **Audit Inspector Drawer** and click **"Remember Rule"** to persist learned vendor patterns into local SQLite for all future statements.
+  5. Switch to **Client Inquiry Builder**: preview the interactive multiple-choice questionnaire generated for the client.
+  6. Click **Export & Audit**: run pre-flight checks and download the clean reconciled General Ledger CSV.
 
 ---
 
@@ -61,6 +67,8 @@ The complete codebase is organized cleanly into modular, production-grade servic
   - `backend/services/client_inquiry.py`: Client inquiry questionnaire generator.
   - `backend/services/export_service.py`: Pre-flight reconciliation validator and CSV export service.
   - `backend/services/evaluator.py`: Live empirical benchmark harness.
+  - `frontend/src/components/SpatialVault.tsx`: Interactive 3D spatial security vault with real-time perspective tilt and layer inspection.
+  - `scripts/deep_system_test.py`: Comprehensive 17-stage automated security, privacy, and integrity verification suite.
 
 ---
 
