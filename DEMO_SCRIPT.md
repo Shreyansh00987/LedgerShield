@@ -8,7 +8,7 @@ This script provides an exact, chronological 90-second live demonstration walkth
 
 ### 0:00 – 0:15 | The Problem & The Privacy Trap
 - **Speaker:** "Every month, independent bookkeepers spend 20+ hours deciphering messy, truncated bank feeds like `AMZN MKTP US*2K39` or `SQ *MIKE'S CAFE`. Sending these confidential statements to cloud AI APIs leaks sensitive financial data and risks hallucinated account codes. LedgerShield solves this: **Reconcile confidently. Keep financial data local.**"
-- **Action on Screen:** Open LedgerShield at `http://localhost:3000`. Point out the verified badge in the header: **"Local-First • 0 Cloud AI Requests"**.
+- **Action on Screen:** Open LedgerShield at `https://ledgershield-dcqj.onrender.com` (or locally at `http://localhost:3000`). Point out the verified badge in the header: **"Local-First • 0 Cloud AI Requests"**.
 
 ---
 

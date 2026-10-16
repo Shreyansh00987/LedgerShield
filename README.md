@@ -1,9 +1,25 @@
-# LedgerShield
+# 🛡️ LedgerShield
 
-> **Reconcile confidently. Keep financial data local.**
-> 
-> 🌐 **Live Demo on Render:** [https://ledgershield-dcqj.onrender.com](https://ledgershield-dcqj.onrender.com)  
-> 📦 **GitHub Repository:** [https://github.com/Shreyansh00987/LedgerShield](https://github.com/Shreyansh00987/LedgerShield)
+<div align="center">
+
+### Reconcile Confidently. Keep Financial Data Local.
+
+[![Render](https://img.shields.io/badge/Render-Live%20Demo%20Active-46E3B7?style=for-the-badge&logo=render&logoColor=black)](https://ledgershield-dcqj.onrender.com)
+[![GitHub](https://img.shields.io/badge/GitHub-Repository-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Shreyansh00987/LedgerShield)
+[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg?style=for-the-badge)](LICENSE)
+[![Model](https://img.shields.io/badge/Local%20AI-Gemma%202%202B-FF6F00?style=for-the-badge&logo=google&logoColor=white)](https://ai.google.dev/gemma)
+[![Privacy](https://img.shields.io/badge/Privacy-100%25%20Local%20First-10B981?style=for-the-badge)](PRIVACY.md)
+
+---
+
+### 🌐 **Live Cloud Demo on Render:**
+### 👉 [https://ledgershield-dcqj.onrender.com](https://ledgershield-dcqj.onrender.com) 👈
+
+*Full 3D interactive React UI, deterministic reconciliation, client inquiry generator, and benchmark evaluator hosted live on Render.*
+
+---
+
+</div>
 
 LedgerShield is a privacy-first transaction reconciliation assistant designed for independent bookkeepers, solo accounting professionals, freelance fractional CFOs, and small accounting practices.
 
@@ -100,7 +116,7 @@ LedgerShield provides a mission-critical, local-first financial workspace that:
 
 ### 1. Clone & Set Up Workspace
 ```bash
-git clone https://github.com/your-username/LedgerShield.git
+git clone https://github.com/Shreyansh00987/LedgerShield.git
 cd LedgerShield
 ```
 
