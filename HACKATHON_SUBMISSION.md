@@ -34,6 +34,7 @@ Solo bookkeepers and freelance QuickBooks ProAdvisors whose revenue is capped by
 
 ## Demo
 
+- **Live Cloud Deployment (Render):** [https://ledgershield-dcqj.onrender.com](https://ledgershield-dcqj.onrender.com)
 - **Live Local Workstation:** Running on `http://localhost:3000` (Frontend) and `http://127.0.0.1:8000` (Backend API).
 - **Interactive 3D Spatial Vault:** Real-time mouse-reactive 3D perspective cube (`SpatialVault.tsx`) demonstrating the 3 local architectural layers: Zero-Cloud Privacy, Gemma 2 AI, and SQLite Deterministic Rules.
 - **Three Ready-to-Test Real-World Scenarios:**
@@ -132,3 +133,6 @@ The end-to-end implementation of LedgerShield—from architecture planning, safe
 ### Featured Categories:
 - **Best Use of Gemma ($200):**  
   LedgerShield uses **Google Gemma 2** (`gemma2:2b` / `gemma2:9b`) as its core semantic classification engine. Gemma runs locally on the user's laptop via the Ollama adapter, processing confidential banking descriptions into structured, validated accounting categories with zero cloud data transmission and zero marginal token cost.
+- **Best Use of Render ($200):**  
+  LedgerShield is deployed and hosted live on **Render** at [https://ledgershield-dcqj.onrender.com](https://ledgershield-dcqj.onrender.com). It leverages Render's Infrastructure-as-Code Blueprint (`render.yaml`) and an optimized multi-stage `Dockerfile` (Node 20 + Python 3.11). Render unifies the interactive 3D React frontend and the FastAPI REST backend into a single performant container with automatic health checks (`/api/health`), zero CORS issues, instant HTTPS, and automated CI/CD continuous deployment connected directly to the GitHub repository.
+

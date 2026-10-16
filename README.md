@@ -1,6 +1,9 @@
 # LedgerShield
 
 > **Reconcile confidently. Keep financial data local.**
+> 
+> 🌐 **Live Demo on Render:** [https://ledgershield-dcqj.onrender.com](https://ledgershield-dcqj.onrender.com)  
+> 📦 **GitHub Repository:** [https://github.com/Shreyansh00987/LedgerShield](https://github.com/Shreyansh00987/LedgerShield)
 
 LedgerShield is a privacy-first transaction reconciliation assistant designed for independent bookkeepers, solo accounting professionals, freelance fractional CFOs, and small accounting practices.
 
