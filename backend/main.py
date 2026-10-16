@@ -2,7 +2,7 @@ import os
 import uuid
 from datetime import datetime
 from typing import List, Optional, Dict, Any
-from fastapi import FastAPI, UploadFile, File, Form, HTTPException, Query, Response
+from fastapi import FastAPI, UploadFile, File, Form, HTTPException, Query, Response, Request
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import PlainTextResponse
 
@@ -74,8 +74,23 @@ def api_get_rules():
     return get_all_rules()
 
 @app.post("/api/rules", response_model=Rule)
-def api_create_rule(pattern: str = Form(...), account_id: str = Form(...), description: str = Form("")):
-    rule = add_user_rule(pattern, account_id, description)
+async def api_create_rule(request: Request):
+    content_type = request.headers.get("content-type", "")
+    if "application/json" in content_type:
+        data = await request.json()
+        pattern = data.get("pattern", "")
+        account_id = data.get("account_id", "")
+        description = data.get("description", "")
+    else:
+        form = await request.form()
+        pattern = form.get("pattern", "")
+        account_id = form.get("account_id", "")
+        description = form.get("description", "")
+        
+    if not pattern or not account_id:
+        raise HTTPException(status_code=400, detail="Missing required fields: 'pattern' and 'account_id'")
+        
+    rule = add_user_rule(str(pattern), str(account_id), str(description or ""))
     log_audit("create_rule", f"Created rule for '{pattern}' -> {account_id}")
     return rule
 
@@ -129,6 +144,7 @@ def load_demo_session():
     }
 
 @app.post("/api/import")
+@app.post("/api/upload-csv")
 async def import_csv(
     file: UploadFile = File(...),
     session_name: Optional[str] = Form(None)
@@ -498,6 +514,7 @@ def api_run_evaluation():
     return res
 
 @app.post("/api/privacy/clear-data")
+@app.post("/api/privacy/clear")
 def clear_all_local_data():
     """Wipe local SQLite tables and reset session database."""
     conn = get_connection()
