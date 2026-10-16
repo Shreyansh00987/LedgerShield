@@ -6,7 +6,10 @@ import {
   ShieldCheck, 
   FileSpreadsheet, 
   ArrowRight,
-  Info
+  Info,
+  Check,
+  ExternalLink,
+  Table
 } from 'lucide-react';
 import { Transaction } from '../types';
 import { getExportCsvUrl } from '../api';
@@ -22,87 +25,99 @@ export const ExportView: React.FC<ExportViewProps> = ({ sessionId, transactions 
   const edited = transactions.filter(t => t.status === 'edited').length;
   const suggested = transactions.filter(t => t.status === 'suggested').length;
   const unresolved = transactions.filter(t => t.status === 'needs_clarification' || t.status === 'unreviewed' || !t.suggested_account_id).length;
-  const rejected = transactions.filter(t => t.status === 'rejected').length;
 
   const isComplete = unresolved === 0 && total > 0;
   const exportUrl = getExportCsvUrl(sessionId);
 
   return (
     <div className="max-w-4xl mx-auto py-8 px-6 space-y-8 animate-in fade-in duration-150">
+      
       {/* Header */}
       <div className="border-b border-slate-800 pb-5">
-        <h1 className="text-xl font-bold text-white tracking-tight flex items-center space-x-2">
-          <span>Export Reconciled Transactions</span>
+        <div className="flex items-center space-x-2.5">
+          <h1 className="text-xl font-bold text-white tracking-tight">
+            General Ledger CSV Export & Pre-Flight Audit
+          </h1>
           {isComplete ? (
-            <span className="px-2 py-0.5 rounded-full text-xs font-mono bg-emerald-950/70 text-emerald-300 border border-emerald-800/40">
-              100% Reconciled
+            <span className="px-2.5 py-0.5 rounded-full text-xs font-mono font-semibold bg-emerald-950/80 text-emerald-300 border border-emerald-800/50">
+              ✓ Ready for Ledger Sync
             </span>
           ) : (
-            <span className="px-2 py-0.5 rounded-full text-xs font-mono bg-amber-950/70 text-amber-300 border border-amber-800/40">
-              Audit In Progress
+            <span className="px-2.5 py-0.5 rounded-full text-xs font-mono font-semibold bg-amber-950/80 text-amber-300 border border-amber-800/50">
+              Audit Pending
             </span>
           )}
-        </h1>
+        </div>
         <p className="text-xs text-slate-400 mt-1">
-          Review pre-flight validation status and download clean, audit-compliant transaction records.
+          Validate pre-flight reconciliation integrity and export clean, audit-compliant transaction records.
         </p>
       </div>
 
-      {/* Pre-Flight Audit Status Card */}
-      <div className={`p-5 rounded-xl border ${
+      {/* Pre-Flight Audit Card */}
+      <div className={`p-6 rounded-2xl border ${
         isComplete 
-          ? 'bg-emerald-950/20 border-emerald-800/40' 
-          : 'bg-amber-950/20 border-amber-800/40'
+          ? 'bg-gradient-to-br from-emerald-950/25 to-[#0e111a] border-emerald-800/50 shadow-lg shadow-emerald-950/10' 
+          : 'bg-gradient-to-br from-amber-950/25 to-[#0e111a] border-amber-800/50 shadow-lg shadow-amber-950/10'
       }`}>
-        <div className="flex items-start space-x-3">
+        <div className="flex items-start space-x-3.5">
           {isComplete ? (
-            <CheckCircle2 className="w-5 h-5 text-emerald-400 shrink-0 mt-0.5" />
+            <div className="w-10 h-10 rounded-xl bg-emerald-950/60 border border-emerald-800/60 flex items-center justify-center text-emerald-400 shrink-0">
+              <CheckCircle2 className="w-6 h-6" />
+            </div>
           ) : (
-            <AlertTriangle className="w-5 h-5 text-amber-400 shrink-0 mt-0.5" />
+            <div className="w-10 h-10 rounded-xl bg-amber-950/60 border border-amber-800/60 flex items-center justify-center text-amber-400 shrink-0">
+              <AlertTriangle className="w-6 h-6" />
+            </div>
           )}
+
           <div className="space-y-1">
-            <h2 className={`text-sm font-semibold ${isComplete ? 'text-emerald-200' : 'text-amber-200'}`}>
+            <h2 className={`text-base font-bold ${isComplete ? 'text-emerald-200' : 'text-amber-200'}`}>
               {isComplete 
-                ? 'Pre-Flight Checks Passed: Ready for Ledger Export' 
-                : 'Attention: Unresolved Transactions Remain'}
+                ? 'Pre-Flight Checks Passed: 100% Reconciled' 
+                : 'Pre-Flight Warning: Unresolved Transactions Remain'}
             </h2>
             <p className="text-xs text-slate-300 leading-relaxed">
               {isComplete
-                ? 'All transactions have been verified by a human reviewer or verified rule. No unverified suggestions remain.'
-                : `${unresolved} transaction(s) have not been categorized or require client clarification. LedgerShield never silently treats AI suggestions as approved entries.`}
+                ? 'All transactions have been reviewed and mapped to verified Chart of Accounts codes. No unreviewed suggestions remain.'
+                : `${unresolved} transaction(s) have unverified accounts or require client clarification. LedgerShield never silently posts AI suggestions without human review.`}
             </p>
           </div>
         </div>
 
-        {/* Breakdown Metric Tiles */}
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mt-4 pt-4 border-t border-slate-800/60">
-          <div className="bg-[#121520] p-3 rounded-lg border border-slate-800">
-            <span className="text-[11px] text-slate-400">Total Entries</span>
-            <p className="text-base font-mono font-bold text-white mt-0.5">{total}</p>
+        {/* Metric Tiles */}
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3.5 mt-5 pt-5 border-t border-slate-800/80">
+          <div className="bg-[#141824] p-3.5 rounded-xl border border-slate-800">
+            <span className="text-[11px] text-slate-400 block font-mono uppercase">Total Entries</span>
+            <p className="text-xl font-mono font-bold text-white mt-1 tabular-nums">{total}</p>
           </div>
-          <div className="bg-[#121520] p-3 rounded-lg border border-slate-800">
-            <span className="text-[11px] text-emerald-400">Approved & Edited</span>
-            <p className="text-base font-mono font-bold text-emerald-300 mt-0.5">{accepted + edited}</p>
+
+          <div className="bg-[#141824] p-3.5 rounded-xl border border-slate-800">
+            <span className="text-[11px] text-emerald-400 block font-mono uppercase">Approved</span>
+            <p className="text-xl font-mono font-bold text-emerald-300 mt-1 tabular-nums">{accepted + edited}</p>
           </div>
-          <div className="bg-[#121520] p-3 rounded-lg border border-slate-800">
-            <span className="text-[11px] text-blue-400">Pending Suggestions</span>
-            <p className="text-base font-mono font-bold text-blue-300 mt-0.5">{suggested}</p>
+
+          <div className="bg-[#141824] p-3.5 rounded-xl border border-slate-800">
+            <span className="text-[11px] text-blue-400 block font-mono uppercase">AI Suggested</span>
+            <p className="text-xl font-mono font-bold text-blue-300 mt-1 tabular-nums">{suggested}</p>
           </div>
-          <div className="bg-[#121520] p-3 rounded-lg border border-slate-800">
-            <span className="text-[11px] text-amber-400">Needs Clarification</span>
-            <p className="text-base font-mono font-bold text-amber-300 mt-0.5">{unresolved}</p>
+
+          <div className="bg-[#141824] p-3.5 rounded-xl border border-slate-800">
+            <span className="text-[11px] text-amber-400 block font-mono uppercase">Needs Clarification</span>
+            <p className="text-xl font-mono font-bold text-amber-300 mt-1 tabular-nums">{unresolved}</p>
           </div>
         </div>
       </div>
 
       {/* Export Action Card */}
-      <div className="p-6 rounded-xl bg-[#111420] border border-slate-800 space-y-4">
-        <div className="flex items-center space-x-3">
-          <FileSpreadsheet className="w-7 h-7 text-blue-400" />
+      <div className="p-6 rounded-2xl bg-[#0e111a] border border-slate-800 space-y-5">
+        <div className="flex items-center space-x-3.5">
+          <div className="w-12 h-12 rounded-xl bg-blue-600/20 border border-blue-500/40 flex items-center justify-center text-blue-400">
+            <FileSpreadsheet className="w-6 h-6 text-cyan-400" />
+          </div>
           <div>
-            <h3 className="text-sm font-semibold text-white">Clean Reconciliation CSV</h3>
-            <p className="text-xs text-slate-400">
-              Includes original bank descriptions, mapped account codes, human audit notes, and confidence metadata.
+            <h3 className="text-sm font-bold text-white">Clean General Ledger CSV</h3>
+            <p className="text-xs text-slate-400 mt-0.5">
+              Includes original bank descriptions, mapped account codes, audit trails, and reviewer notes.
             </p>
           </div>
         </div>
@@ -110,18 +125,28 @@ export const ExportView: React.FC<ExportViewProps> = ({ sessionId, transactions 
         <a
           href={exportUrl}
           download
-          className="w-full py-3 px-4 rounded-md bg-blue-600 hover:bg-blue-500 text-white font-semibold text-xs flex items-center justify-center space-x-2 transition shadow-sm"
+          className="w-full py-3.5 px-4 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white font-bold text-xs flex items-center justify-center space-x-2 transition shadow-lg shadow-blue-900/30 transform active:scale-95"
         >
           <Download className="w-4 h-4" />
-          <span>Download Reconciled CSV File</span>
+          <span>Download Reconciled General Ledger CSV</span>
         </a>
 
-        {/* Compatibility Details */}
-        <div className="pt-3 border-t border-slate-800/80 flex items-center justify-between text-[11px] text-slate-500">
-          <span>Compatible with QuickBooks Online, Xero, Sage Intacct, and Excel</span>
-          <span>UTF-8 Encoded • Safe Formula Sanitized</span>
+        {/* Accounting Software Compatibility Pills */}
+        <div className="pt-3 border-t border-slate-800/80 space-y-2">
+          <span className="text-[11px] font-semibold text-slate-400 uppercase tracking-wider block">
+            Verified Compatible Accounting Software:
+          </span>
+          <div className="flex flex-wrap gap-2 text-xs">
+            {['QuickBooks Online', 'Xero', 'Sage Intacct', 'FreshBooks', 'Microsoft Excel'].map((tool) => (
+              <span key={tool} className="px-2.5 py-1 rounded-lg bg-[#141824] border border-slate-800 text-slate-300 font-medium flex items-center space-x-1.5">
+                <Check className="w-3 h-3 text-emerald-400" />
+                <span>{tool}</span>
+              </span>
+            ))}
+          </div>
         </div>
       </div>
+
     </div>
   );
 };

@@ -2,22 +2,22 @@
 
 @layer base {
   :root {
-    --bg-app: #0c0e14;
-    --bg-surface: #12151f;
-    --bg-surface-elevated: #1a1e2d;
-    --bg-surface-subtle: #161925;
+    --bg-app: #08090e;
+    --bg-surface: #0f121b;
+    --bg-surface-elevated: #161b28;
+    --bg-surface-subtle: #121622;
     
-    --border-subtle: #242938;
-    --border-strong: #333a4f;
+    --border-subtle: #1e2433;
+    --border-strong: #2c354b;
     --border-focus: #3b82f6;
 
-    --text-primary: #f1f5f9;
+    --text-primary: #f8fafc;
     --text-secondary: #94a3b8;
     --text-muted: #64748b;
     
     --accent-primary: #2563eb;
     --accent-hover: #1d4ed8;
-    --accent-surface: rgba(37, 99, 235, 0.12);
+    --accent-surface: rgba(37, 99, 235, 0.14);
 
     --status-accepted-bg: rgba(16, 185, 129, 0.12);
     --status-accepted-text: #34d399;
@@ -51,19 +51,29 @@
     font-variant-numeric: tabular-nums;
   }
 
-  /* Custom scrollbars suited for dense accounting tables */
+  /* Custom subtle scrollbars */
   ::-webkit-scrollbar {
     width: 6px;
     height: 6px;
   }
   ::-webkit-scrollbar-track {
-    background: #0f121a;
+    background: #0a0c12;
   }
   ::-webkit-scrollbar-thumb {
-    background: #252b3b;
+    background: #202738;
     border-radius: 3px;
   }
   ::-webkit-scrollbar-thumb:hover {
-    background: #374151;
+    background: #2f3952;
+  }
+
+  /* Subtle card gradient & border shine */
+  .financial-card {
+    background: linear-gradient(180deg, rgba(22, 27, 40, 0.75) 0%, rgba(15, 18, 27, 0.85) 100%);
+    border: 1px solid rgba(44, 53, 75, 0.7);
+  }
+
+  .financial-card:hover {
+    border-color: rgba(59, 130, 246, 0.35);
   }
 }
