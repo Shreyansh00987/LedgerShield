@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: ledgershield
+    runtime: docker
+    plan: free
+    region: oregon
+    branch: main
+    healthCheckPath: /api/health
+    envVars:
+      - key: PORT
+        value: 10000
+      - key: LEDGERSHIELD_FALLBACK_MODE
+        value: heuristic
