@@ -56,7 +56,7 @@ Solo bookkeepers and freelance QuickBooks ProAdvisors whose revenue is capped by
 
 The complete codebase is organized cleanly into modular, production-grade services:
 
-- **Repository:** [https://github.com/your-username/LedgerShield](https://github.com/your-username/LedgerShield)
+- **Repository:** [https://github.com/Shreyansh00987/LedgerShield](https://github.com/Shreyansh00987/LedgerShield)
 - **Frontend Architecture:** React 19, TypeScript, Vite, Tailwind CSS v4, Lucide React icons. Implements the Impeccable "Operate" standard for mission-critical financial applications.
 - **Backend Architecture:** Python 3.14, FastAPI, Pydantic v2, SQLite 3 in WAL mode, Uvicorn.
 - **Key Files:**
